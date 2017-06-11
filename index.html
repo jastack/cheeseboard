@@ -6,22 +6,24 @@
   </head>
   <body>
     Welcome to my Cheeseboard menu reader!
+
+    <script type="text/javascript" src="./node_modules/reuqest/request.js">
+
+    </script>
     <script type="text/javascript">
-    var request = require("request"),
-    cheerio = require("cheerio"),
-    url = "http://www.wunderground.com/cgi-bin/findweather/getForecast?&query=" + 02888;
+    var request = require("./node_modules/request/request.js"),
+    url = "http://cheeseboardcollective.coop/pizza/"
 
     request(url, function (error, response, body) {
     if (!error) {
-      var $ = cheerio.load(body),
-        temperature = $("[data-variable='temperature'] .wx-value").html();
-
-      console.log("It’s " + temperature + " degrees Fahrenheit.");
+      console.log(response);
     } else {
       console.log("We’ve encountered an error: " + error);
     }
     });
     </script>
+
+
 
   </body>
 </html>
